@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Vita Artes - Educación Online y Gratuita</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Vita Artes</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#acerca" class="text-gray-600 hover:text-blue-600 transition duration-300">Acerca de</a>
+                <a href="#como-funciona" class="text-gray-600 hover:text-blue-600 transition duration-300">¿Cómo Funciona?</a>
+                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition duration-300">Contacto</a>
+            </div>
+            <a href="#contacto" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow">
+                Inscríbete Ahora
+            </a>
+            <!-- Mobile Menu Button (optional, for future enhancement) -->
+            <button class="md:hidden text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+                <!-- Left Column (Text) -->
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                        Tu Educación, Tu Futuro. <span class="text-blue-600">Sin Barreras.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        En Fundación Vita Artes, te ofrecemos la oportunidad de completar tus estudios de forma gratuita y 100% online. Nunca es tarde para alcanzar tus metas.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#acerca" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">Conoce Más</a>
+                        <a href="#contacto" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-300 transition duration-300">Contáctanos</a>
+                    </div>
+                </div>
+                <!-- Right Column (Image) -->
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Estudiante+Feliz" alt="Estudiante sonriendo mientras usa un computador" class="rounded-lg shadow-2xl mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="acerca" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Creemos en el poder de la educación para transformar vidas.</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12">
+                    Vita Artes nació de un sueño: que nadie se quede atrás por no haber podido completar sus estudios. Entendemos que la vida presenta obstáculos, pero creemos firmemente que el deseo de aprender no tiene fecha de vencimiento.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Misión</h3>
+                        <p class="text-gray-600">
+                            Ofrecer educación secundaria de alta calidad, de manera flexible, gratuita y online, a todas las personas que deseen completar sus estudios, entregándoles las herramientas necesarias para su desarrollo personal y profesional.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Visión</h3>
+                        <p class="text-gray-600">
+                            Ser la fundación líder en educación online para la reinserción escolar, creando una comunidad de aprendizaje donde cada estudiante se sienta apoyado, valorado y capaz de alcanzar su máximo potencial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="como-funciona" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12">Estudiar con nosotros es simple y flexible</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="p-6">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">100% Online</h3>
+                        <p class="text-gray-600">Estudia desde cualquier lugar. Solo necesitas un dispositivo con acceso a internet.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="p-6">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">A Tu Ritmo</h3>
+                        <p class="text-gray-600">Nuestra plataforma está disponible 24/7 para que avances según tu propio horario.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="p-6">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L8 9.778 12 7.556 16 9.778 12 12z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Certificación Válida</h3>
+                        <p class="text-gray-600">Obtén tu licencia de enseñanza media, válida para seguir estudiando o mejorar tus opciones laborales.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="p-6">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Apoyo Constante</h3>
+                        <p class="text-gray-600">Contarás con tutores y una comunidad de compañeros para ayudarte en cada paso del camino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">Hablemos. Estamos para ayudarte.</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">
+                        ¿Tienes preguntas sobre el programa? ¿Te gustaría colaborar? Completa el formulario y te responderemos a la brevedad.
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <form action="#" method="POST">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="font-semibold text-gray-700">Nombre Completo</label>
+                                <input type="text" id="name" name="name" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Tu Nombre">
+                            </div>
+                            <div>
+                                <label for="email" class="font-semibold text-gray-700">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="tu@correo.com">
+                            </div>
+                            <div>
+                                <label for="message" class="font-semibold text-gray-700">Mensaje</label>
+                                <textarea id="message" name="message" rows="5" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu consulta aquí..."></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Meeting & Info -->
+                    <div class="flex flex-col justify-between">
+                         <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Organiza una Reunión</h3>
+                            <p class="text-gray-600 mb-6">
+                                Si representas a una empresa, otra organización o quieres conversar sobre una alianza, agenda una reunión virtual con nuestro equipo.
+                            </p>
+                             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="w-full text-center block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition duration-300 shadow-lg">
+                                Agendar Reunión Virtual
+                            </a>
+                        </div>
+                        <div class="mt-8 pt-8 border-t">
+                             <h4 class="font-semibold text-gray-800">También puedes encontrarnos en:</h4>
+                            <p class="text-gray-600 mt-2"><strong>Email:</strong> <a href="mailto:contacto@vitaartes.org" class="text-blue-600">contacto@vitaartes.org</a></p>
+                            <!-- Social Media Icons could go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Fundación Vita Artes. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Hecho con ♥ para un futuro con más oportunidades.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
