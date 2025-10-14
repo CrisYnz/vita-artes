@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación Vita Artes - Educación Online y Gratuita</title>
+    <title>Fundación Vita Artes - Educación que Transforma Vidas</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,12 +12,17 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -29,20 +34,27 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-600">Vita Artes</a>
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#acerca" class="text-gray-600 hover:text-blue-600 transition duration-300">Acerca de</a>
-                <a href="#como-funciona" class="text-gray-600 hover:text-blue-600 transition duration-300">¿Cómo Funciona?</a>
+                <a href="#quienes-somos" class="text-gray-600 hover:text-blue-600 transition duration-300">¿Quiénes Somos?</a>
+                <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition duration-300">Nuestros Servicios</a>
+                <a href="#apoyanos" class="text-gray-600 hover:text-blue-600 transition duration-300">Apóyanos</a>
                 <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition duration-300">Contacto</a>
             </div>
             <a href="#contacto" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow">
                 Inscríbete Ahora
             </a>
-            <!-- Mobile Menu Button (optional, for future enhancement) -->
-            <button class="md:hidden text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 L" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#quienes-somos" class="block py-2 text-gray-600 hover:text-blue-600">¿Quiénes Somos?</a>
+            <a href="#servicios" class="block py-2 text-gray-600 hover:text-blue-600">Nuestros Servicios</a>
+            <a href="#apoyanos" class="block py-2 text-gray-600 hover:text-blue-600">Apóyanos</a>
+            <a href="#contacto" class="block py-2 text-gray-600 hover:text-blue-600">Contacto</a>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -50,88 +62,144 @@
         <!-- Hero Section -->
         <section class="relative bg-white">
             <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
-                <!-- Left Column (Text) -->
                 <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-                        Tu Educación, Tu Futuro. <span class="text-blue-600">Sin Barreras.</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                        ¡Tu futuro te espera! <span class="text-blue-600">Educación Gratuita y en tus Manos.</span>
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        En Fundación Vita Artes, te ofrecemos la oportunidad de completar tus estudios de forma gratuita y 100% online. Nunca es tarde para alcanzar tus metas.
+                        Una oportunidad real para completar tus estudios y transformar tu vida. Si dejaste el sistema educativo, ¡tenemos la solución para ti!
                     </p>
                     <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="#acerca" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">Conoce Más</a>
+                        <a href="#servicios" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">Ver Programas</a>
                         <a href="#contacto" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-300 transition duration-300">Contáctanos</a>
                     </div>
                 </div>
-                <!-- Right Column (Image) -->
                 <div class="md:w-1/2">
-                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Estudiante+Feliz" alt="Estudiante sonriendo mientras usa un computador" class="rounded-lg shadow-2xl mx-auto">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Transforma+tu+Futuro" alt="Estudiante sonriendo mientras usa un computador" class="rounded-lg shadow-2xl mx-auto">
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="acerca" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Creemos en el poder de la educación para transformar vidas.</h2>
-                <p class="max-w-3xl mx-auto text-gray-600 mb-12">
-                    Vita Artes nació de un sueño: que nadie se quede atrás por no haber podido completar sus estudios. Entendemos que la vida presenta obstáculos, pero creemos firmemente que el deseo de aprender no tiene fecha de vencimiento.
-                </p>
-                <div class="grid md:grid-cols-2 gap-12 text-left">
-                    <div class="bg-white p-8 rounded-lg shadow-md">
+        <section id="quienes-somos" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Quiénes Somos?</h2>
+                    <p class="text-lg text-gray-600 mb-12">
+                        Fundación Vita Artes es una organización sin fines de lucro comprometida con la transformación educativa en Chile. Nacimos de la convicción de que la educación debe ser integral, accesible y centrada en las habilidades únicas de cada estudiante. Usamos la innovación y la creatividad como pilares para enriquecer el aprendizaje y revitalizar la pasión por el conocimiento.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 text-left">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Misión</h3>
                         <p class="text-gray-600">
-                            Ofrecer educación secundaria de alta calidad, de manera flexible, gratuita y online, a todas las personas que deseen completar sus estudios, entregándoles las herramientas necesarias para su desarrollo personal y profesional.
+                            Mejorar la calidad de la educación en Chile mediante una oferta integral que potencie las habilidades de los estudiantes. Lo logramos creando establecimientos de vanguardia, promoviendo la lectura y escritura creativa desde la etapa preescolar, y celebrando alianzas estratégicas para asegurar la excelencia.
                         </p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Visión</h3>
                         <p class="text-gray-600">
-                            Ser la fundación líder en educación online para la reinserción escolar, creando una comunidad de aprendizaje donde cada estudiante se sienta apoyado, valorado y capaz de alcanzar su máximo potencial.
+                            Ser reconocida como la fundación líder que ha logrado un cambio sustancial y sostenible en el panorama educativo de Chile, impulsando una educación de alta calidad que fomenta la creatividad, garantiza la equidad y forma estudiantes listos para los desafíos del siglo XXI.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="como-funciona" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 mb-12">Estudiar con nosotros es simple y flexible</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="p-6">
-                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        <!-- Services Section -->
+        <section id="servicios" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Qué Ofrecemos?</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-600">Soluciones educativas innovadoras para estudiantes, adultos y establecimientos educacionales.</p>
+                </div>
+
+                <!-- Virtual College -->
+                <div class="bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl mb-16">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-extrabold text-blue-600 mb-4">Colegio Virtual Gratuito</h3>
+                            <p class="text-gray-600 mb-6">
+                                Otorgamos oportunidades para todas las personas que necesitan continuar o culminar sus estudios. Preparamos a nuestros estudiantes para rendir los exámenes de validación del Ministerio de Educación, mediante módulos de autoaprendizaje y clases en vivo.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Profesores de excelencia:</strong> Docentes calificados y comprometidos, expertos en enseñanza a distancia.</span></li>
+                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Tecnología de última generación:</strong> Plataforma robusta y fácil de usar con acceso a todos los materiales.</span></li>
+                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Comunidad de apoyo:</strong> Conectarás con otros estudiantes que comparten tus mismos sueños y metas.</span></li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">100% Online</h3>
-                        <p class="text-gray-600">Estudia desde cualquier lugar. Solo necesitas un dispositivo con acceso a internet.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="p-6">
-                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div>
+                            <img src="https://placehold.co/500x350/EBF4FF/3B82F6?text=Aprendizaje+Online" alt="Ilustración de educación online" class="rounded-lg shadow-md mx-auto">
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">A Tu Ritmo</h3>
-                        <p class="text-gray-600">Nuestra plataforma está disponible 24/7 para que avances según tu propio horario.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="p-6">
-                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L8 9.778 12 7.556 16 9.778 12 12z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Certificación Válida</h3>
-                        <p class="text-gray-600">Obtén tu licencia de enseñanza media, válida para seguir estudiando o mejorar tus opciones laborales.</p>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div class="p-6">
-                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Apoyo Constante</h3>
-                        <p class="text-gray-600">Contarás con tutores y una comunidad de compañeros para ayudarte en cada paso del camino.</p>
                     </div>
                 </div>
+
+                <!-- Educational Consulting -->
+                <div class="max-w-5xl mx-auto">
+                    <h3 class="text-3xl font-extrabold text-center text-gray-900 mb-4">Asesorías en Gestión Educacional</h3>
+                    <p class="text-center text-gray-600 mb-10">Brindamos asesoría experta a directivos para potencializar la gestión escolar y promover el desarrollo organizacional.</p>
+                    
+                    <div class="space-y-4">
+                        <!-- Accordion Item 1 -->
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
+                                <span>Liderazgo</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Diseño y/o actualización del PEI:</strong> Asesoría de 12 horas para diagnóstico, definición de visión, misión y sellos, y ajuste del PEI.</li>
+                                        <li><strong>Diagnóstico Institucional:</strong> 10 horas de asesoría para generar Planes Estratégicos o PME, basado en Estándares de la Agencia de Calidad.</li>
+                                        <li><strong>Diseño de Planes Estratégicos:</strong> 6 horas para el diseño del Plan Estratégico o PME en base al diagnóstico.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Accordion Item 2 -->
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
+                                <span>Gestión Pedagógica</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Estrategias de acompañamiento docente:</strong> 10 horas de asesoría para definir e implementar estrategias efectivas.</li>
+                                        <li><strong>Reflexión pedagógica para la innovación:</strong> 10 horas de asesoría para la implementación de estrategias de reflexión.</li>
+                                        <li><strong>Actualización Reglamento de Evaluación:</strong> 10 horas para revisar y actualizar según normativa vigente (Decreto 67).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more accordion items similarly -->
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
+                                <span>Gestión de la Convivencia Escolar</span>
+                                 <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content"><div class="p-5 border-t text-gray-600"><ul class="list-disc pl-5 space-y-2"><li><strong>Actualización Reglamento Interno:</strong> 10 horas para revisión según REX 482 de la Superintendencia.</li><li><strong>Diagnóstico clima escolar:</strong> 12 horas de asesoría para medición de clima, violencia y bullying.</li><li><strong>Diseño Plan de Gestión de Convivencia:</strong> 12 horas para identificar mejoras y diseñar el plan.</li><li><strong>Aplicación Ley Aula Segura:</strong> 10 horas de orientación y entrega de formatos para la aplicación de la Ley 21.128.</li></ul></div></div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
+                                <span>Gestión de Recursos</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content"><div class="p-5 border-t text-gray-600"><p>12 horas de asesoría para una gestión de personal efectiva, incluyendo:</p><ul class="list-disc pl-5 space-y-2 mt-2"><li>Diseño Plan local de formación para el desarrollo profesional docente.</li><li>Evaluación del personal docente y asistente de la educación.</li></ul></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Us Section -->
+        <section id="apoyanos" class="py-20 bg-blue-600 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">¡Sé un arquitecto de la transformación social!</h2>
+                <p class="max-w-3xl mx-auto text-lg text-blue-100 mb-8">
+                    Este proyecto es posible gracias al apoyo de personas y empresas comprometidas. Al donar, no solo estás financiando un colegio, estás invirtiendo en el futuro de miles de personas y construyendo una sociedad más justa y equitativa.
+                </p>
+                <a href="#contacto" class="bg-white text-blue-600 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg">Quiero Donar</a>
             </div>
         </section>
 
@@ -139,52 +207,45 @@
         <section id="contacto" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900">Hablemos. Estamos para ayudarte.</h2>
+                    <h2 class="text-3xl font-bold text-gray-900">Contáctanos</h2>
                     <p class="max-w-2xl mx-auto text-gray-600 mt-4">
-                        ¿Tienes preguntas sobre el programa? ¿Te gustaría colaborar? Completa el formulario y te responderemos a la brevedad.
+                        Si deseas retomar tus estudios, solicitar una asesoría o ser parte de esta revolución educativa, completa el formulario.
                     </p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl grid md:grid-cols-2 gap-12">
-                    <!-- Contact Form -->
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl">
                     <form action="#" method="POST">
-                        <div class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="font-semibold text-gray-700">Nombre Completo</label>
-                                <input type="text" id="name" name="name" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Tu Nombre">
+                                <input type="text" id="name" name="name" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                             <div>
                                 <label for="email" class="font-semibold text-gray-700">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="tu@correo.com">
+                                <input type="email" id="email" name="email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                             <div>
+                                <label for="school" class="font-semibold text-gray-700">Establecimiento Educacional (si aplica)</label>
+                                <input type="text" id="school" name="school" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                             <div>
+                                <label for="rbd" class="font-semibold text-gray-700">RBD (si aplica)</label>
+                                <input type="text" id="rbd" name="rbd" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                             <div class="md:col-span-2">
+                                <label for="phone" class="font-semibold text-gray-700">Teléfono de Contacto</label>
+                                <input type="tel" id="phone" name="phone" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="md:col-span-2">
                                 <label for="message" class="font-semibold text-gray-700">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu consulta aquí..."></textarea>
+                                <textarea id="message" name="message" rows="5" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
                             </div>
-                            <div>
+                            <div class="md:col-span-2">
                                 <button type="submit" class="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">
-                                    Enviar Mensaje
+                                    Enviar Formulario
                                 </button>
                             </div>
                         </div>
                     </form>
-                    
-                    <!-- Meeting & Info -->
-                    <div class="flex flex-col justify-between">
-                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Organiza una Reunión</h3>
-                            <p class="text-gray-600 mb-6">
-                                Si representas a una empresa, otra organización o quieres conversar sobre una alianza, agenda una reunión virtual con nuestro equipo.
-                            </p>
-                             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="w-full text-center block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition duration-300 shadow-lg">
-                                Agendar Reunión Virtual
-                            </a>
-                        </div>
-                        <div class="mt-8 pt-8 border-t">
-                             <h4 class="font-semibold text-gray-800">También puedes encontrarnos en:</h4>
-                            <p class="text-gray-600 mt-2"><strong>Email:</strong> <a href="mailto:contacto@vitaartes.org" class="text-blue-600">contacto@vitaartes.org</a></p>
-                            <!-- Social Media Icons could go here -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -199,5 +260,41 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('svg');
+
+                // Close other accordions
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    if (c !== content && c.style.maxHeight) {
+                        c.style.maxHeight = null;
+                        c.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+                
+                // Toggle current accordion
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('rotate-180');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
+
