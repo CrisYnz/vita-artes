@@ -14,10 +14,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            /* Style for page load animation */
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
         }
         .accordion-content {
             max-height: 0;
@@ -43,7 +49,7 @@
                 Inscríbete Ahora
             </a>
             <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 L" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
@@ -60,21 +66,21 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="relative bg-white">
+        <section class="relative bg-white overflow-hidden">
             <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4" data-aos="fade-down">
                         ¡Tu futuro te espera! <span class="text-blue-600">Educación Gratuita y en tus Manos.</span>
                     </h1>
-                    <p class="text-lg text-gray-600 mb-8">
+                    <p class="text-lg text-gray-600 mb-8" data-aos="fade-down" data-aos-delay="200">
                         Una oportunidad real para completar tus estudios y transformar tu vida. Si dejaste el sistema educativo, ¡tenemos la solución para ti!
                     </p>
-                    <div class="flex justify-center md:justify-start space-x-4">
+                    <div class="flex justify-center md:justify-start space-x-4" data-aos="fade-up" data-aos-delay="400">
                         <a href="#servicios" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">Ver Programas</a>
                         <a href="#contacto" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-300 transition duration-300">Contáctanos</a>
                     </div>
                 </div>
-                <div class="md:w-1/2">
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
                     <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Transforma+tu+Futuro" alt="Estudiante sonriendo mientras usa un computador" class="rounded-lg shadow-2xl mx-auto">
                 </div>
             </div>
@@ -83,20 +89,20 @@
         <!-- About Us Section -->
         <section id="quienes-somos" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto">
+                <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Quiénes Somos?</h2>
                     <p class="text-lg text-gray-600 mb-12">
                         Fundación Vita Artes es una organización sin fines de lucro comprometida con la transformación educativa en Chile. Nacimos de la convicción de que la educación debe ser integral, accesible y centrada en las habilidades únicas de cada estudiante. Usamos la innovación y la creatividad como pilares para enriquecer el aprendizaje y revitalizar la pasión por el conocimiento.
                     </p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-10 text-left">
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right" data-aos-delay="200">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Misión</h3>
                         <p class="text-gray-600">
                             Mejorar la calidad de la educación en Chile mediante una oferta integral que potencie las habilidades de los estudiantes. Lo logramos creando establecimientos de vanguardia, promoviendo la lectura y escritura creativa desde la etapa preescolar, y celebrando alianzas estratégicas para asegurar la excelencia.
                         </p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="200">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Nuestra Visión</h3>
                         <p class="text-gray-600">
                             Ser reconocida como la fundación líder que ha logrado un cambio sustancial y sostenible en el panorama educativo de Chile, impulsando una educación de alta calidad que fomenta la creatividad, garantiza la equidad y forma estudiantes listos para los desafíos del siglo XXI.
@@ -109,15 +115,15 @@
         <!-- Services Section -->
         <section id="servicios" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Qué Ofrecemos?</h2>
                     <p class="max-w-3xl mx-auto text-lg text-gray-600">Soluciones educativas innovadoras para estudiantes, adultos y establecimientos educacionales.</p>
                 </div>
 
                 <!-- Virtual College -->
-                <div class="bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl mb-16">
+                <div class="bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl mb-16" data-aos="fade-up">
                     <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <div data-aos="fade-right">
                             <h3 class="text-3xl font-extrabold text-blue-600 mb-4">Colegio Virtual Gratuito</h3>
                             <p class="text-gray-600 mb-6">
                                 Otorgamos oportunidades para todas las personas que necesitan continuar o culminar sus estudios. Preparamos a nuestros estudiantes para rendir los exámenes de validación del Ministerio de Educación, mediante módulos de autoaprendizaje y clases en vivo.
@@ -128,20 +134,20 @@
                                 <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Comunidad de apoyo:</strong> Conectarás con otros estudiantes que comparten tus mismos sueños y metas.</span></li>
                             </ul>
                         </div>
-                        <div>
+                        <div data-aos="fade-left">
                             <img src="https://placehold.co/500x350/EBF4FF/3B82F6?text=Aprendizaje+Online" alt="Ilustración de educación online" class="rounded-lg shadow-md mx-auto">
                         </div>
                     </div>
                 </div>
 
                 <!-- Educational Consulting -->
-                <div class="max-w-5xl mx-auto">
+                <div class="max-w-5xl mx-auto" data-aos="fade-up">
                     <h3 class="text-3xl font-extrabold text-center text-gray-900 mb-4">Asesorías en Gestión Educacional</h3>
                     <p class="text-center text-gray-600 mb-10">Brindamos asesoría experta a directivos para potencializar la gestión escolar y promover el desarrollo organizacional.</p>
                     
                     <div class="space-y-4">
                         <!-- Accordion Item 1 -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
                             <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
                                 <span>Liderazgo</span>
                                 <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -157,7 +163,7 @@
                             </div>
                         </div>
                          <!-- Accordion Item 2 -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
                             <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
                                 <span>Gestión Pedagógica</span>
                                 <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -173,14 +179,14 @@
                             </div>
                         </div>
                         <!-- Add more accordion items similarly -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
                             <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
                                 <span>Gestión de la Convivencia Escolar</span>
                                  <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content"><div class="p-5 border-t text-gray-600"><ul class="list-disc pl-5 space-y-2"><li><strong>Actualización Reglamento Interno:</strong> 10 horas para revisión según REX 482 de la Superintendencia.</li><li><strong>Diagnóstico clima escolar:</strong> 12 horas de asesoría para medición de clima, violencia y bullying.</li><li><strong>Diseño Plan de Gestión de Convivencia:</strong> 12 horas para identificar mejoras y diseñar el plan.</li><li><strong>Aplicación Ley Aula Segura:</strong> 10 horas de orientación y entrega de formatos para la aplicación de la Ley 21.128.</li></ul></div></div>
                         </div>
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="400">
                             <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
                                 <span>Gestión de Recursos</span>
                                 <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -194,7 +200,7 @@
 
         <!-- Support Us Section -->
         <section id="apoyanos" class="py-20 bg-blue-600 text-white">
-            <div class="container mx-auto px-6 text-center">
+            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
                 <h2 class="text-3xl md:text-4xl font-extrabold mb-4">¡Sé un arquitecto de la transformación social!</h2>
                 <p class="max-w-3xl mx-auto text-lg text-blue-100 mb-8">
                     Este proyecto es posible gracias al apoyo de personas y empresas comprometidas. Al donar, no solo estás financiando un colegio, estás invirtiendo en el futuro de miles de personas y construyendo una sociedad más justa y equitativa.
@@ -206,13 +212,13 @@
         <!-- Contact Section -->
         <section id="contacto" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-3xl font-bold text-gray-900">Contáctanos</h2>
                     <p class="max-w-2xl mx-auto text-gray-600 mt-4">
                         Si deseas retomar tus estudios, solicitar una asesoría o ser parte de esta revolución educativa, completa el formulario.
                     </p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl">
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl" data-aos="fade-up" data-aos-delay="200">
                     <form action="#" method="POST">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
@@ -260,7 +266,21 @@
         </div>
     </footer>
 
+    <!-- AOS (Animate On Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // Page load animation
+        window.onload = () => {
+            document.body.style.opacity = 1;
+        };
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
