@@ -4,16 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación Vita Artes - Educación que Transforma Vidas</title>
-    
+    <title>Fundación Vita Artes - Educación que Transforma, Tecnología que Incluye</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+                            400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e',
+                            800: '#115e59', 900: '#134e4a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- AOS (Animate On Scroll) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -21,14 +36,23 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            /* Style for page load animation */
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
         }
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
+            transition: max-height 0.4s ease-in-out;
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -36,191 +60,419 @@
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-teal-600">Vita Artes</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#quienes-somos" class="text-gray-600 hover:text-teal-600 transition duration-300">¿Quiénes Somos?</a>
-                <a href="#servicios" class="text-gray-600 hover:text-teal-600 transition duration-300">Nuestros Servicios</a>
-                <a href="#apoyanos" class="text-gray-600 hover:text-teal-600 transition duration-300">Apóyanos</a>
-                <a href="#contacto" class="text-gray-600 hover:text-teal-600 transition duration-300">Contacto</a>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#vita-adultos" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Vita Adultos</a>
+                <a href="#vita-homeschool" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Vita Homeschool</a>
+                <a href="#por-que-virtual" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">¿Por qué Virtual?</a>
+                <a href="#dona" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Dona</a>
+                <a href="#contacto" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Contacto</a>
             </div>
-            <a href="#contacto" class="hidden md:block bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-300 shadow">
+            <a href="#contacto" class="hidden lg:block bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-300 shadow">
                 Inscríbete Ahora
             </a>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+            <button id="mobile-menu-button" class="lg:hidden text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#quienes-somos" class="block py-2 text-gray-600 hover:text-teal-600">¿Quiénes Somos?</a>
-            <a href="#servicios" class="block py-2 text-gray-600 hover:text-teal-600">Nuestros Servicios</a>
-            <a href="#apoyanos" class="block py-2 text-gray-600 hover:text-teal-600">Apóyanos</a>
-            <a href="#contacto" class="block py-2 text-gray-600 hover:text-teal-600">Contacto</a>
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 space-y-1">
+            <a href="#vita-adultos" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Vita Adultos</a>
+            <a href="#vita-homeschool" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Vita Homeschool</a>
+            <a href="#por-que-virtual" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">¿Por qué Virtual?</a>
+            <a href="#dona" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Dona</a>
+            <a href="#contacto" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Contacto</a>
+            <a href="#contacto" class="block py-2 mt-2 bg-orange-500 text-white text-center rounded-lg font-semibold">Inscríbete Ahora</a>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="relative bg-white overflow-hidden">
-            <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4" data-aos="fade-down">
-                        Construyendo Sueños, <span class="text-teal-600">Transformando Vidas.</span>
+
+        <!-- HERO -->
+        <section class="gradient-hero text-white overflow-hidden">
+            <div class="container mx-auto px-6 py-24 md:py-36 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-down">
+                        Educación que Transforma, Tecnología que Incluye.
                     </h1>
-                    <p class="text-lg text-gray-600 mb-8" data-aos="fade-down" data-aos-delay="200">
-                        Creemos en el poder de la educación para abrir puertas y crear oportunidades. Únete a nuestra comunidad y da el primer paso hacia un futuro más brillante.
+                    <p class="text-lg md:text-xl text-teal-100 mb-8 leading-relaxed" data-aos="fade-down" data-aos-delay="200">
+                        En Fundación Vita Artes, utilizamos el poder de la innovación digital para derribar las barreras del aprendizaje. Ya sea que busques terminar tu escolaridad o una alternativa de vanguardia para tus hijos, tenemos un lugar para ti.
                     </p>
-                    <div class="flex justify-center md:justify-start space-x-4" data-aos="fade-up" data-aos-delay="400">
-                        <a href="#servicios" class="bg-teal-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-700 transition duration-300 shadow-lg">Descubre Cómo</a>
-                        <a href="#contacto" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-300 transition duration-300">Involúcrate</a>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#vita-adultos" class="bg-white text-teal-700 px-8 py-3 rounded-lg font-bold text-lg hover:bg-teal-50 transition duration-300 shadow-lg text-center">Termina tus Estudios Gratis</a>
+                        <a href="#vita-homeschool" class="bg-orange-500 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg text-center">Conoce Vita Homeschool</a>
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Grupo de estudiantes diversos aprendiendo juntos" class="rounded-lg shadow-2xl mx-auto">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Estudiantes diversos aprendiendo juntos" class="rounded-2xl shadow-2xl mx-auto">
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="quienes-somos" class="py-20 bg-gray-50">
+        <!-- VITA ADULTOS -->
+        <section id="vita-adultos" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Quiénes Somos?</h2>
-                    <p class="text-lg text-gray-600 mb-12">
-                        Fundación Vita Artes es una organización sin fines de lucro comprometida con la transformación educativa en Chile. Nacimos de la convicción de que la educación debe ser integral, accesible y centrada en las habilidades únicas de cada estudiante. Usamos la innovación y la creatividad como pilares para enriquecer el aprendizaje y revitalizar la pasión por el conocimiento.
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">100% Gratuito</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">VITA ADULTOS</h2>
+                        <p class="text-xl text-teal-600 font-semibold italic mb-6">¡Es momento de cerrar el ciclo y abrir tu futuro!</p>
+                        <p class="text-gray-600 text-lg mb-6">
+                            ¿No terminaste tu 4to Medio? No dejes que el tiempo o el trabajo sean un obstáculo. Nuestro programa es 100% gratuito y está diseñado para personas jóvenes y adultas que necesitan flexibilidad real. Gracias a nuestra alianza con <strong>Google Workspace for Nonprofits</strong>, puedes nivelar tus estudios básicos y medios desde cualquier lugar.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center font-bold">$0</span>
+                                <div><strong class="text-gray-900">Cero Costo:</strong> <span class="text-gray-600">Educación de alta calidad sin afectar tu bolsillo.</span></div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </span>
+                                <div><strong class="text-gray-900">Flexibilidad 24/7:</strong> <span class="text-gray-600">Estudia a tu ritmo, en tus horarios de descanso o después del trabajo.</span></div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </span>
+                                <div><strong class="text-gray-900">Acompañamiento Humano:</strong> <span class="text-gray-600">No estarás solo; contamos con tutores que te guiarán hasta tu examen final.</span></div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div><strong class="text-gray-900">Alfabetización Digital:</strong> <span class="text-gray-600">Te enseñamos a usar las herramientas tecnológicas desde cero.</span></div>
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-teal-700 transition duration-300 shadow-lg">Inscríbete Gratis Aquí</a>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Adulto estudiando con tablet" class="rounded-2xl shadow-xl mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VITA HOMESCHOOL -->
+        <section id="vita-homeschool" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+
+                <!-- Intro -->
+                <div class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-sm font-semibold mb-4">Servicio Premium</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">VITA HOMESCHOOL</h2>
+                    <p class="text-xl text-orange-500 font-semibold italic mb-6">Libertad para Aprender, Seguridad para Crecer</p>
+                    <p class="text-lg text-gray-600">
+                        En Fundación Vita Artes, entendemos que el bienestar emocional es el motor del éxito académico. Hemos diseñado un espacio educativo donde la seguridad de casa se une con la excelencia pedagógica, permitiendo que niños y jóvenes florezcan sin las presiones del sistema tradicional.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-10 text-left">
-                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold text-teal-600 mb-3">Nuestra Misión</h3>
-                        <p class="text-gray-600">
-                            Mejorar la calidad de la educación en Chile mediante una oferta integral que potencie las habilidades de los estudiantes. Lo logramos creando establecimientos de vanguardia, promoviendo la lectura y escritura creativa desde la etapa preescolar, y celebrando alianzas estratégicas para asegurar la excelencia.
-                        </p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold text-teal-600 mb-3">Nuestra Visión</h3>
-                        <p class="text-gray-600">
-                            Ser reconocida como la fundación líder que ha logrado un cambio sustancial y sostenible en el panorama educativo de Chile, impulsando una educación de alta calidad que fomenta la creatividad, garantiza la equidad y forma estudiantes listos para los desafíos del siglo XXI.
-                        </p>
+
+                <!-- Oferta Educativa -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12" data-aos="fade-up">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Oferta Educativa: 1° a 8° Básico</h3>
+                            <p class="text-gray-600 mb-6">Cupos limitados enfocados en la preparación exhaustiva de las <strong>asignaturas troncales</strong> exigidas por el MINEDUC:</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-teal-50 p-4 rounded-lg card-hover">
+                                    <div class="text-teal-600 font-bold mb-1">Lenguaje y Comunicación</div>
+                                    <p class="text-sm text-gray-600">Fomento de la lecto-escritura y comprensión crítica.</p>
+                                </div>
+                                <div class="bg-teal-50 p-4 rounded-lg card-hover">
+                                    <div class="text-teal-600 font-bold mb-1">Matemáticas</div>
+                                    <p class="text-sm text-gray-600">Pensamiento lógico y resolución de problemas.</p>
+                                </div>
+                                <div class="bg-teal-50 p-4 rounded-lg card-hover">
+                                    <div class="text-teal-600 font-bold mb-1">Ciencias Naturales</div>
+                                    <p class="text-sm text-gray-600">Exploración del entorno y pensamiento científico.</p>
+                                </div>
+                                <div class="bg-teal-50 p-4 rounded-lg card-hover">
+                                    <div class="text-teal-600 font-bold mb-1">Historia y Cs. Sociales</div>
+                                    <p class="text-sm text-gray-600">Formación ciudadana y conciencia del entorno.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Niño estudiando en casa" class="rounded-2xl shadow-lg mx-auto">
+                        </div>
                     </div>
                 </div>
+
+                <!-- Beneficios Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-14 h-14 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Adiós al Bullying</h4>
+                        <p class="text-sm text-gray-600">Eliminamos la exposición a entornos de acoso. La salud mental es nuestra prioridad.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Supervisión Familiar</h4>
+                        <p class="text-sm text-gray-600">Retoma el control de la educación. Supervisa avances bajo los valores de tu hogar.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Ahorro Real</h4>
+                        <p class="text-sm text-gray-600">Sin uniformes, sin transporte, sin cuotas excesivas. Inversión 100% en pedagogía.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-purple-100 text-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Tecnología Global</h4>
+                        <p class="text-sm text-gray-600">Ecosistema Google Workspace preparando a los niños para el mundo digital real.</p>
+                    </div>
+                </div>
+
+                <!-- Bienestar + Mentoría -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Bienestar -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-right">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Programa de Bienestar Emocional</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Un cerebro estresado no aprende. Integramos sesiones semanales de bienestar:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-teal-500 mt-1">&#9679;</span>
+                                <span><strong>Mindfulness:</strong> Técnicas de atención plena para mejorar concentración y reducir ansiedad.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-teal-500 mt-1">&#9679;</span>
+                                <span><strong>Ciudadanía Digital:</strong> Ética en internet, seguridad y prevención del ciberbullying.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-teal-500 mt-1">&#9679;</span>
+                                <span><strong>Liderazgo y Autogestión:</strong> Habilidades del Siglo XXI para organizar metas y tiempo.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-teal-500 mt-1">&#9679;</span>
+                                <span><strong>Yoga Educativo:</strong> Equilibrio físico y mental durante la jornada de estudio.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Mentoría -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-left">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Mentoría para Padres</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">No estás solo en este camino. Nuestro Director Académico, Magíster en Gestión Educacional, lidera:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-orange-500 mt-1">&#9679;</span>
+                                <span><strong>Sesiones Mensuales:</strong> Herramientas de gestión del tiempo, técnicas de estudio y mediación de conflictos.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-orange-500 mt-1">&#9679;</span>
+                                <span><strong>Ruta Académica Personalizada:</strong> Currículo adaptado a los ritmos de tu hijo, de 1° a 8° básico.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-gray-600">
+                                <span class="text-orange-500 mt-1">&#9679;</span>
+                                <span><strong>Reportes de Avance:</strong> Informes de gestión con desarrollo de competencias y objetivos cumplidos.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Plan Académico destacado -->
+                <div class="bg-gradient-to-r from-teal-600 to-teal-700 text-white rounded-2xl shadow-xl p-8 md:p-12 mb-12" data-aos="zoom-in">
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-2">
+                            <h3 class="text-2xl font-bold mb-4">Plan Académico Completo</h3>
+                            <div class="grid sm:grid-cols-3 gap-4 mb-4">
+                                <div class="bg-white/10 rounded-lg p-4 text-center">
+                                    <div class="text-3xl font-extrabold">15</div>
+                                    <div class="text-teal-200 text-sm">Clases en vivo por semana</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-4 text-center">
+                                    <div class="text-3xl font-extrabold">24/7</div>
+                                    <div class="text-teal-200 text-sm">Acceso a Google Classroom</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-4 text-center">
+                                    <div class="text-3xl font-extrabold">1°-8°</div>
+                                    <div class="text-teal-200 text-sm">Enseñanza Básica</div>
+                                </div>
+                            </div>
+                            <p class="text-teal-100">Clases sincrónicas vía Google Meet con docentes especialistas, plataforma de autoaprendizaje, simulacros de exámenes y retroalimentación constante.</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="#contacto" class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg">Solicitar Entrevista de Admisión</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propósito Social -->
+                <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-xl p-6 md:p-8 mb-12" data-aos="fade-up">
+                    <p class="text-lg text-gray-700 italic">
+                        "Al matricular a tu hijo en <strong>VITA HOMESCHOOL</strong>, una parte de tu arancel financia automáticamente la beca de un adulto en nuestro programa <strong>VITA ADULTOS</strong>. Mientras tu hijo asegura su futuro en casa, tú estás ayudando a que un adulto transforme el suyo."
+                    </p>
+                </div>
+
+                <!-- Mitos vs Realidad (Accordion) -->
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mb-3">Mitos vs. Realidad del Homeschool</h3>
+                    <p class="text-center text-gray-600 mb-8">Sabemos que tienes dudas. Es natural. Aquí te mostramos la verdad.</p>
+
+                    <div class="space-y-3">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center gap-4">
+                                <span>"Si estudia en casa, mi hijo no socializará"</span>
+                                <svg class="w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    La socialización en colegios tradicionales suele ser forzada y foco de conflictos. En nuestro modelo, fomentamos la interacción sana en las <strong>15 clases sincrónicas semanales</strong> y en talleres presenciales de Yoga, Música y Artes. El niño socializa desde la seguridad y el interés común, no desde la presión de grupo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center gap-4">
+                                <span>"Los estudios en casa no tienen validez oficial"</span>
+                                <svg class="w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    Preparamos a los alumnos para los <strong>Exámenes Libres del MINEDUC</strong>. Una vez aprobados, el Ministerio otorga un certificado con la <strong>misma validez legal</strong> que el de cualquier colegio presencial, permitiendo la continuidad de estudios en cualquier institución del país.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center gap-4">
+                                <span>"Yo no soy profesor, no sabré enseñarle"</span>
+                                <svg class="w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    Tú no tienes que ser el profesor; <strong>nosotros lo somos</strong>. Con el respaldo de un Magíster en Gestión Educacional, entregamos toda la estructura, clases en vivo y material 24/7. Tu rol es de acompañamiento y motivación. Además, cuentas con nuestra <strong>Mentoría para Padres</strong>.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center gap-4">
+                                <span>"Estará todo el día frente a un computador sin hacer nada"</span>
+                                <svg class="w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    Nuestro modelo utiliza <strong>Google Workspace</strong> para fomentar el aprendizaje activo. No solo escuchan; crean proyectos, colaboran en línea y participan en sesiones de Mindfulness y bienestar. La tecnología es una <strong>herramienta de creación</strong>, no un televisor.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center gap-4">
+                                <span>"El Homeschool de calidad es impagable"</span>
+                                <svg class="w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 border-t text-gray-600">
+                                    Si sumas colegio particular, uniformes, transporte, cuotas de materiales y tiempo de traslado, nuestro plan anual es <strong>significativamente más económico</strong>. Además, es una inversión con propósito: una parte de tu matrícula financia la educación gratuita de un adulto.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="py-20 bg-white">
+        <!-- ¿POR QUÉ EDUCACIÓN VIRTUAL? -->
+        <section id="por-que-virtual" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Qué Ofrecemos?</h2>
-                    <p class="max-w-3xl mx-auto text-lg text-gray-600">Soluciones educativas innovadoras para estudiantes, adultos y establecimientos educacionales.</p>
+                <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">¿Por qué elegir la Educación Virtual?</h2>
+                    <p class="text-xl text-teal-600 font-semibold italic">El mundo cambió, la forma de aprender también.</p>
                 </div>
-
-                <!-- Virtual College -->
-                <div class="bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl mb-16" data-aos="fade-up">
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div data-aos="fade-right">
-                            <h3 class="text-3xl font-extrabold text-teal-600 mb-4">Colegio Virtual Gratuito</h3>
-                            <p class="text-gray-600 mb-6">
-                                Otorgamos oportunidades para todas las personas que necesitan continuar o culminar sus estudios. Preparamos a nuestros estudiantes para rendir los exámenes de validación del Ministerio de Educación, mediante módulos de autoaprendizaje y clases en vivo.
-                            </p>
-                            <ul class="space-y-4">
-                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Profesores de excelencia:</strong> Docentes calificados y comprometidos, expertos en enseñanza a distancia.</span></li>
-                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Tecnología de última generación:</strong> Plataforma robusta y fácil de usar con acceso a todos los materiales.</span></li>
-                                <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✔</span><span><strong>Comunidad de apoyo:</strong> Conectarás con otros estudiantes que comparten tus mismos sueños y metas.</span></li>
-                            </ul>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                         </div>
-                        <div data-aos="fade-left">
-                            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profesor ayudando a un estudiante" class="rounded-lg shadow-md mx-auto">
-                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2">Comodidad y Ahorro</h4>
+                        <p class="text-gray-600">Evita gastos de transporte, uniformes y materiales costosos. Tu sala de clases está donde tú estés.</p>
                     </div>
-                </div>
-
-                <!-- Educational Consulting -->
-                <div class="max-w-5xl mx-auto" data-aos="fade-up">
-                    <h3 class="text-3xl font-extrabold text-center text-gray-900 mb-4">Asesorías en Gestión Educacional</h3>
-                    <p class="text-center text-gray-600 mb-10">Brindamos asesoría experta a directivos para potencializar la gestión escolar y promover el desarrollo organizacional.</p>
-                    
-                    <div class="space-y-4">
-                        <!-- Accordion Item 1 -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
-                                <span>Liderazgo</span>
-                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="p-5 border-t text-gray-600">
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Diseño y/o actualización del PEI:</strong> Asesoría de 12 horas para diagnóstico, definición de visión, misión y sellos, y ajuste del PEI.</li>
-                                        <li><strong>Diagnóstico Institucional:</strong> 10 horas de asesoría para generar Planes Estratégicos o PME, basado en Estándares de la Agencia de Calidad.</li>
-                                        <li><strong>Diseño de Planes Estratégicos:</strong> 6 horas para el diseño del Plan Estratégico o PME en base al diagnóstico.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
-                         <!-- Accordion Item 2 -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
-                                <span>Gestión Pedagógica</span>
-                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="p-5 border-t text-gray-600">
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Estrategias de acompañamiento docente:</strong> 10 horas de asesoría para definir e implementar estrategias efectivas.</li>
-                                        <li><strong>Reflexión pedagógica para la innovación:</strong> 10 horas de asesoría para la implementación de estrategias de reflexión.</li>
-                                        <li><strong>Actualización Reglamento de Evaluación:</strong> 10 horas para revisar y actualizar según normativa vigente (Decreto 67).</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2">Ritmo Personalizado</h4>
+                        <p class="text-gray-600">Profundiza en lo que te cuesta y avanza rápido en lo que ya dominas. El aprendizaje es a tu medida.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                         </div>
-                        <!-- Add more accordion items similarly -->
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
-                                <span>Gestión de la Convivencia Escolar</span>
-                                 <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content"><div class="p-5 border-t text-gray-600"><ul class="list-disc pl-5 space-y-2"><li><strong>Actualización Reglamento Interno:</strong> 10 horas para revisión según REX 482 de la Superintendencia.</li><li><strong>Diagnóstico clima escolar:</strong> 12 horas de asesoría para medición de clima, violencia y bullying.</li><li><strong>Diseño Plan de Gestión de Convivencia:</strong> 12 horas para identificar mejoras y diseñar el plan.</li><li><strong>Aplicación Ley Aula Segura:</strong> 10 horas de orientación y entrega de formatos para la aplicación de la Ley 21.128.</li></ul></div></div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2">Conciliación Familiar</h4>
+                        <p class="text-gray-600">Pasa más tiempo con los tuyos. La educación desde casa fortalece los vínculos familiares.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                         </div>
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="400">
-                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg text-gray-800 flex justify-between items-center">
-                                <span>Gestión de Recursos</span>
-                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content"><div class="p-5 border-t text-gray-600"><p>12 horas de asesoría para una gestión de personal efectiva, incluyendo:</p><ul class="list-disc pl-5 space-y-2 mt-2"><li>Diseño Plan local de formación para el desarrollo profesional docente.</li><li>Evaluación del personal docente y asistente de la educación.</li></ul></div></div>
-                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2">Autonomía Digital</h4>
+                        <p class="text-gray-600">Aprender en entornos digitales desarrolla la autodisciplina y competencias que exige el mundo laboral.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Support Us Section -->
-        <section id="apoyanos" class="py-20 bg-orange-500 text-white">
-            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">¡Sé un arquitecto de la transformación social!</h2>
-                <p class="max-w-3xl mx-auto text-lg text-orange-100 mb-8">
-                    Este proyecto es posible gracias al apoyo de personas y empresas comprometidas. Al donar, no solo estás financiando un colegio, estás invirtiendo en el futuro de miles de personas y construyendo una sociedad más justa y equitativa.
-                </p>
-                <a href="#contacto" class="bg-white text-orange-500 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg">Quiero Donar</a>
+        <!-- DONA -->
+        <section id="dona" class="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6">El Arte de Abrir Puertas que Parecían Cerradas para Siempre</h2>
+                    <p class="text-lg text-orange-100 mb-8 leading-relaxed">
+                        ¿Sabías que en Chile miles de adultos viven con su futuro en pausa porque no pudieron terminar el colegio? Detrás de cada cifra hay un padre que no puede ayudar a su hijo con la tarea, una mujer con talento que no accede a un mejor empleo, o un joven que el sistema dejó atrás.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6 mb-10 text-left">
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                            <div class="text-2xl font-bold mb-2">Tecnología con propósito</div>
+                            <p class="text-orange-100 text-sm">Democratizamos el acceso al aprendizaje con herramientas de vanguardia como Google Workspace, eliminando distancias y costos.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                            <div class="text-2xl font-bold mb-2">Formación integral</div>
+                            <p class="text-orange-100 text-sm">Además de preparar exámenes, sanamos el vínculo con el aprendizaje a través de talleres de Yoga, Música y Artes.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                            <div class="text-2xl font-bold mb-2">Docentes de excelencia</div>
+                            <p class="text-orange-100 text-sm">Equipo con postgrado que asegura que el 100% de nuestros alumnos logre su certificación ante el MINEDUC.</p>
+                        </div>
+                    </div>
+                    <p class="text-xl font-semibold mb-8">No estás donando dinero; estás donando la posibilidad de que alguien diga:<br><em>"Yo pude. Yo terminé mi escuela."</em></p>
+                    <a href="#contacto" class="inline-block bg-white text-orange-500 px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-50 transition duration-300 shadow-lg">Dona Aquí</a>
+                </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- CONTACTO -->
         <section id="contacto" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold text-gray-900">Contáctanos</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Contáctanos</h2>
                     <p class="max-w-2xl mx-auto text-gray-600 mt-4">
-                        Si deseas retomar tus estudios, solicitar una asesoría o ser parte de esta revolución educativa, completa el formulario.
+                        Ya sea que quieras retomar tus estudios, inscribir a tus hijos en Vita Homeschool o apoyar nuestra misión, completa el formulario y te contactaremos.
                     </p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                    <form action="https://api.web3forms.com/submit" method="POST">
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="b361de36-8f3f-4bbb-879f-0bda3c4a2954">
+                        <input type="hidden" name="redirect" value="false">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="font-semibold text-gray-700">Nombre Completo</label>
@@ -231,20 +483,22 @@
                                 <input type="email" id="email" name="email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" required>
                             </div>
                             <div>
-                                <label for="school" class="font-semibold text-gray-700">Establecimiento Educacional (si aplica)</label>
-                                <input type="text" id="school" name="school" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500">
-                            </div>
-                             <div>
-                                <label for="rbd" class="font-semibold text-gray-700">RBD (si aplica)</label>
-                                <input type="text" id="rbd" name="rbd" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500">
-                            </div>
-                             <div class="md:col-span-2">
                                 <label for="phone" class="font-semibold text-gray-700">Teléfono de Contacto</label>
                                 <input type="tel" id="phone" name="phone" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500">
                             </div>
+                            <div>
+                                <label for="service" class="font-semibold text-gray-700">¿Qué te interesa?</label>
+                                <select id="service" name="service" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-white">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="vita-adultos">Vita Adultos (Gratuito)</option>
+                                    <option value="vita-homeschool">Vita Homeschool (1° a 8° Básico)</option>
+                                    <option value="donacion">Quiero Donar</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
                             <div class="md:col-span-2">
                                 <label for="message" class="font-semibold text-gray-700">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" required></textarea>
+                                <textarea id="message" name="message" rows="4" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" required></textarea>
                             </div>
                             <div class="md:col-span-2">
                                 <button type="submit" class="w-full bg-teal-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-700 transition duration-300 shadow-lg">
@@ -260,14 +514,36 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Fundación Vita Artes. Todos los derechos reservados.</p>
-            <p class="text-sm text-gray-400 mt-2">Hecho con ♥ para un futuro con más oportunidades.</p>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold text-teal-400 mb-3">Fundación Vita Artes</h4>
+                    <p class="text-gray-400">Educación que Transforma, Tecnología que Incluye.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Nuestros Programas</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#vita-adultos" class="hover:text-teal-400 transition">Vita Adultos (Gratuito)</a></li>
+                        <li><a href="#vita-homeschool" class="hover:text-teal-400 transition">Vita Homeschool</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Datos Institucionales</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Antonio Bellet 193, Of. 1210, Providencia, RM</li>
+                        <li>RUT: 65.257.622-2</li>
+                        <li class="text-xs italic mt-2">Impulsado por Google Workspace for Nonprofits</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-500 text-sm">&copy; 2026 Fundación Educacional Vita Artes. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- AOS (Animate On Scroll) Library JS -->
+    <!-- AOS Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -278,8 +554,8 @@
 
         // Initialize AOS
         AOS.init({
-            duration: 800, // values from 0 to 3000, with step 50ms
-            once: true, // whether animation should happen only once - while scrolling down
+            duration: 800,
+            once: true,
         });
 
         // Mobile Menu Toggle
@@ -287,6 +563,13 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         // Accordion functionality
@@ -303,7 +586,7 @@
                         c.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
                     }
                 });
-                
+
                 // Toggle current accordion
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
@@ -318,4 +601,3 @@
 
 </body>
 </html>
-
