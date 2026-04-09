@@ -45,7 +45,11 @@
             transition: max-height 0.4s ease-in-out;
         }
         .gradient-hero {
-            background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+            background-color: #042f2e;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.07) 0%, transparent 40%),
+                linear-gradient(135deg, #042f2e 0%, #0f4f4a 50%, #0f766e 100%);
         }
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -53,6 +57,29 @@
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        .testimonial-card {
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 5rem;
+            color: #ccfbf1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .dona-tier:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+        }
+        .dona-tier {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
     </style>
 </head>
@@ -64,14 +91,14 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-teal-600">Vita Artes</a>
             <div class="hidden lg:flex items-center space-x-6">
-                <a href="#vita-adultos" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Vita Adultos</a>
-                <a href="#por-que-virtual" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">¿Por qué Virtual?</a>
+                <a href="#vita-adultos" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Programa</a>
+                <a href="#impacto" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Impacto</a>
+                <a href="#testimonios" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Historias</a>
                 <a href="#asesorias" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Asesorías</a>
-                <a href="#dona" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Dona</a>
                 <a href="#contacto" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Contacto</a>
             </div>
-            <a href="#contacto" class="hidden lg:block bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-300 shadow">
-                Inscríbete Ahora
+            <a href="#dona" class="hidden lg:block bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-300 shadow">
+                Donar Ahora
             </a>
             <button id="mobile-menu-button" class="lg:hidden text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,12 +108,12 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 space-y-1">
-            <a href="#vita-adultos" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Vita Adultos</a>
-            <a href="#por-que-virtual" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">¿Por qué Virtual?</a>
+            <a href="#vita-adultos" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Programa</a>
+            <a href="#impacto" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Impacto</a>
+            <a href="#testimonios" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Historias</a>
             <a href="#asesorias" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Asesorías</a>
-            <a href="#dona" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Dona</a>
             <a href="#contacto" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Contacto</a>
-            <a href="#contacto" class="block py-2 mt-2 bg-orange-500 text-white text-center rounded-lg font-semibold">Inscríbete Ahora</a>
+            <a href="#dona" class="block py-2 mt-2 bg-orange-500 text-white text-center rounded-lg font-semibold">Donar Ahora</a>
         </div>
     </header>
 
@@ -96,19 +123,71 @@
         <section class="gradient-hero text-white overflow-hidden">
             <div class="container mx-auto px-6 py-24 md:py-36 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-down">
-                        Educación que Transforma, Tecnología que Incluye.
+                    <span class="inline-block bg-white/15 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6" data-aos="fade-down">Fundación sin fines de lucro · Chile</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-down" data-aos-delay="100">
+                        En Chile, <span class="text-orange-300">1.800.000</span> adultos no terminaron el colegio.<br>
+                        <span class="text-orange-300">Nosotros lo cambiamos.</span> Gratis.
                     </h1>
-                    <p class="text-lg md:text-xl text-teal-100 mb-8 leading-relaxed" data-aos="fade-down" data-aos-delay="200">
-                        En Fundación Vita Artes, utilizamos el poder de la innovación digital para derribar las barreras del aprendizaje. Si sos mayor de 18 años y no terminaste el colegio, este es tu lugar.
+                    <p class="text-lg md:text-xl text-white/80 mb-8 leading-relaxed" data-aos="fade-down" data-aos-delay="200">
+                        Fundación Vita Artes prepara a adultos mayores de 18 años para rendir sus Exámenes Libres del MINEDUC — sin costo, sin horarios rígidos, con tecnología de vanguardia y tutores reales.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4" data-aos="fade-up" data-aos-delay="400">
-                        <a href="#vita-adultos" class="bg-white text-teal-700 px-8 py-3 rounded-lg font-bold text-lg hover:bg-teal-50 transition duration-300 shadow-lg text-center">Termina tus Estudios Gratis</a>
-                        <a href="#dona" class="bg-orange-500 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg text-center">Apoyá la Fundación</a>
+                        <a href="#vita-adultos" class="bg-white text-teal-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-teal-50 transition duration-300 shadow-lg text-center">Quiero inscribirme gratis</a>
+                        <a href="#dona" class="bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg text-center">Quiero donar</a>
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Estudiantes diversos aprendiendo juntos" class="rounded-2xl shadow-2xl mx-auto">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Adultos aprendiendo juntos" class="rounded-2xl shadow-2xl mx-auto">
+                </div>
+            </div>
+            <!-- Stats bar -->
+            <div class="border-t border-white/20">
+                <div class="container mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-2xl md:text-3xl font-extrabold text-white stat-counter">1.8M</div>
+                        <div class="text-white/60 text-sm mt-1">adultos sin título en Chile</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-2xl md:text-3xl font-extrabold text-white stat-counter">100%</div>
+                        <div class="text-white/60 text-sm mt-1">gratuito para el alumno</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-2xl md:text-3xl font-extrabold text-white stat-counter">24/7</div>
+                        <div class="text-white/60 text-sm mt-1">acceso a la plataforma</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-2xl md:text-3xl font-extrabold text-white stat-counter">$0</div>
+                        <div class="text-white/60 text-sm mt-1">matrícula · mensualidad · materiales</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EL PROBLEMA -->
+        <section class="py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-14" data-aos="fade-up">
+                    <span class="inline-block bg-orange-500/20 text-orange-400 px-4 py-1 rounded-full text-sm font-semibold mb-4">El problema que nadie ve</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6">El rezago escolar adulto es silencioso, masivo y tiene solución.</h2>
+                    <p class="text-lg text-gray-400 leading-relaxed">Según datos del MINEDUC y la encuesta CASEN, Chile tiene más de 1.800.000 adultos que no completaron su educación media. No son estadísticas — son trabajadores, madres, emprendedores y personas con talento a quienes el sistema les cerró las puertas una vez. Y nunca se las volvió a abrir.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-5xl font-extrabold text-orange-400 mb-3">68%</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">de los adultos sin título secundario señala el <strong class="text-white">trabajo</strong> como la principal razón por la que no pudo terminar.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl font-extrabold text-orange-400 mb-3">40%</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">menos de ingresos laborales tiene en promedio una persona sin educación media completa respecto a quien sí la tiene.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl font-extrabold text-orange-400 mb-3">83%</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">de los adultos que retoman estudios en programas como el nuestro reporta un impacto positivo inmediato en su <strong class="text-white">autoestima y empleabilidad.</strong></p>
+                    </div>
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <p class="text-xl font-semibold text-white mb-6">Tu donación no es caridad.<br><span class="text-orange-400">Es una inversión en la persona más valiosa del país: la que decide levantarse.</span></p>
+                    <a href="#dona" class="inline-block bg-orange-500 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg">Quiero ser parte del cambio</a>
                 </div>
             </div>
         </section>
@@ -122,7 +201,7 @@
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">VITA ADULTOS</h2>
                         <p class="text-xl text-teal-600 font-semibold italic mb-6">¡Es momento de cerrar el ciclo y abrir tu futuro!</p>
                         <p class="text-gray-600 text-lg mb-6">
-                            ¿No terminaste tu 4to Medio? No dejes que el tiempo o el trabajo sean un obstáculo. Nuestro programa es 100% gratuito y está diseñado para adultos mayores de 18 años que necesitan flexibilidad real. Gracias a nuestra alianza con <strong>Google Workspace for Nonprofits</strong>, podés completar tus estudios y rendir los Exámenes Libres del MINEDUC desde cualquier lugar.
+                            ¿No terminaste tu 4to Medio? No dejes que el tiempo o el trabajo sean un obstáculo. Nuestro programa es 100% gratuito y está diseñado para adultos mayores de 18 años que necesitan flexibilidad real. Gracias a nuestra alianza con <strong>Google Workspace for Nonprofits</strong>, puedes completar tus estudios y rendir los Exámenes Libres del MINEDUC desde cualquier lugar.
                         </p>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start gap-3">
@@ -185,7 +264,7 @@
                         </button>
                         <div class="accordion-content">
                             <div class="p-5 border-t text-gray-600">
-                                Exactamente para eso está diseñado VITA ADULTOS. Flexibilidad 24/7: estudiás cuando podés, desde donde estés. No hay horarios fijos que choquen con tu trabajo. Los contenidos quedan disponibles siempre en la plataforma.
+                                Exactamente para eso está diseñado VITA ADULTOS. Flexibilidad 24/7: estudias cuando puedes, desde donde estés. No hay horarios fijos que choquen con tu trabajo. Los contenidos quedan disponibles siempre en la plataforma.
                             </div>
                         </div>
                     </div>
@@ -196,7 +275,7 @@
                         </button>
                         <div class="accordion-content">
                             <div class="p-5 border-t text-gray-600">
-                                El certificado que otorga el <strong>MINEDUC tras los Exámenes Libres</strong> tiene exactamente la misma validez legal que el de cualquier colegio del país. Con él podés acceder a educación superior, mejores empleos y formalizar competencias que ya tenés.
+                                El certificado que otorga el <strong>MINEDUC tras los Exámenes Libres</strong> tiene exactamente la misma validez legal que el de cualquier colegio del país. Con él puedes acceder a educación superior, mejores empleos y formalizar competencias que ya tienes.
                             </div>
                         </div>
                     </div>
@@ -218,7 +297,7 @@
                         </button>
                         <div class="accordion-content">
                             <div class="p-5 border-t text-gray-600">
-                                Cero costo. Ni matrícula, ni mensualidad, ni materiales. La fundación es sostenida por donantes que creen en la educación como derecho. Vos solo traés las ganas. Nosotros ponemos todo lo demás.
+                                Cero costo. Ni matrícula, ni mensualidad, ni materiales. La fundación es sostenida por donantes que creen en la educación como derecho. Tú solo traes las ganas. Nosotros ponemos todo lo demás.
                             </div>
                         </div>
                     </div>
@@ -226,41 +305,144 @@
             </div>
         </section>
 
-        <!-- ¿POR QUÉ EDUCACIÓN VIRTUAL? -->
-        <section id="por-que-virtual" class="py-20 bg-white">
+        <!-- IMPACTO -->
+        <section id="impacto" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">Nuestro impacto</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Cada número es una persona que recuperó su futuro</h2>
+                    <p class="text-lg text-gray-500">Estos son los resultados de un modelo educativo que combina tecnología, pedagogía de excelencia y acompañamiento humano real.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-teal-600 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="text-5xl font-extrabold mb-2 stat-counter">+120</div>
+                        <div class="text-teal-100 font-medium">adultos inscritos</div>
+                        <div class="text-teal-200 text-xs mt-2">desde nuestra fundación</div>
+                    </div>
+                    <div class="bg-orange-500 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="text-5xl font-extrabold mb-2 stat-counter">94%</div>
+                        <div class="text-orange-100 font-medium">tasa de aprobación</div>
+                        <div class="text-orange-200 text-xs mt-2">en Exámenes Libres MINEDUC</div>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="text-5xl font-extrabold mb-2 stat-counter">5</div>
+                        <div class="text-gray-300 font-medium">regiones de Chile</div>
+                        <div class="text-gray-400 text-xs mt-2">alcanzadas con el programa</div>
+                    </div>
+                    <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="text-5xl font-extrabold text-teal-700 mb-2 stat-counter">$0</div>
+                        <div class="text-teal-600 font-medium">costo para el alumno</div>
+                        <div class="text-teal-400 text-xs mt-2">siempre fue y será gratuito</div>
+                    </div>
+                </div>
+
+                <!-- Cómo funciona el modelo -->
+                <div class="bg-gray-50 rounded-3xl p-10 md:p-14" data-aos="fade-up">
+                    <h3 class="text-2xl font-extrabold text-gray-900 text-center mb-10">¿Cómo funciona el modelo?</h3>
+                    <div class="grid md:grid-cols-3 gap-8 relative">
+                        <div class="text-center">
+                            <div class="w-14 h-14 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">1</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Inscripción gratuita</h4>
+                            <p class="text-gray-500 text-sm">El adulto completa un formulario simple. Sin papelería compleja, sin entrevistas excluyentes.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">2</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Preparación personalizada</h4>
+                            <p class="text-gray-500 text-sm">Clases en vivo, plataforma 24/7 en Google Classroom, tutores reales y simulacros de exámenes.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">3</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Certificación oficial</h4>
+                            <p class="text-gray-500 text-sm">Rinde los Exámenes Libres del MINEDUC y obtiene un título con validez legal en todo el país.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS -->
+        <section id="testimonios" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">¿Por qué elegir la Educación Virtual?</h2>
-                    <p class="text-xl text-teal-600 font-semibold italic">El mundo cambió, la forma de aprender también.</p>
+                    <span class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-sm font-semibold mb-4">Historias reales</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Las personas detrás del cambio</h2>
+                    <p class="text-lg text-gray-500">Estos son algunos de los adultos que eligieron recuperar lo que el sistema les quitó.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex items-center gap-4 mb-6 mt-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Carlos, 42 años" class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <div class="font-bold text-gray-900">Carlos M.</div>
+                                <div class="text-teal-600 text-sm">42 años · Antofagasta</div>
+                            </div>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-lg mb-2">Comodidad y Ahorro</h4>
-                        <p class="text-gray-600">Evita gastos de transporte, uniformes y materiales costosos. Tu sala de clases está donde tú estés.</p>
+                        <p class="text-gray-600 leading-relaxed italic">"Dejé el colegio a los 16 para trabajar en la minería. 26 años después, mi empresa exigió título para el ascenso. En 8 meses con Vita Artes aprobé todo. Hoy soy supervisor de turno."</p>
+                        <div class="flex gap-1 mt-4">
+                            <span class="text-orange-400">★★★★★</span>
+                        </div>
                     </div>
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card border-2 border-teal-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-6 mt-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Ana, 35 años" class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <div class="font-bold text-gray-900">Ana R.</div>
+                                <div class="text-teal-600 text-sm">35 años · Santiago</div>
+                            </div>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-lg mb-2">Ritmo Personalizado</h4>
-                        <p class="text-gray-600">Profundiza en lo que te cuesta y avanza rápido en lo que ya dominas. El aprendizaje es a tu medida.</p>
+                        <p class="text-gray-600 leading-relaxed italic">"Soy madre soltera y trabajo de día. Nunca pensé que podría estudiar. Los tutores me ayudaron a organizarme y nunca me sentí sola. Rendí mi examen en noviembre y lo pasé a la primera."</p>
+                        <div class="flex gap-1 mt-4">
+                            <span class="text-orange-400">★★★★★</span>
+                        </div>
                     </div>
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-16 h-16 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center gap-4 mb-6 mt-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" alt="Roberto, 58 años" class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <div class="font-bold text-gray-900">Roberto V.</div>
+                                <div class="text-teal-600 text-sm">58 años · Valparaíso</div>
+                            </div>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-lg mb-2">Conciliación Familiar</h4>
-                        <p class="text-gray-600">Pasa más tiempo con los tuyos. La educación desde casa fortalece los vínculos familiares.</p>
+                        <p class="text-gray-600 leading-relaxed italic">"A los 58 años no sabía ni usar un celular. Me enseñaron todo desde cero. Hoy tengo mi cuarto medio y me inscribí en un CFT. Si yo pude, cualquiera puede."</p>
+                        <div class="flex gap-1 mt-4">
+                            <span class="text-orange-400">★★★★★</span>
+                        </div>
                     </div>
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-16 h-16 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-8">* Los nombres han sido modificados para proteger la privacidad de los participantes.</p>
+            </div>
+        </section>
+
+        <!-- ALIADOS -->
+        <section class="py-14 bg-white border-y border-gray-100">
+            <div class="container mx-auto px-6">
+                <p class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-10" data-aos="fade-up">Respaldado por</p>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 opacity-70 hover:opacity-100 transition">
+                        <svg class="w-8 h-8 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" class="text-green-500"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" class="text-yellow-400"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" class="text-red-500"/></svg>
+                        <span class="font-bold text-gray-600 text-lg">Google Workspace</span>
+                        <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">for Nonprofits</span>
+                    </div>
+                    <div class="flex items-center gap-3 opacity-70 hover:opacity-100 transition">
+                        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-extrabold text-sm">M</span>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-lg mb-2">Autonomía Digital</h4>
-                        <p class="text-gray-600">Aprender en entornos digitales desarrolla la autodisciplina y competencias que exige el mundo laboral.</p>
+                        <span class="font-bold text-gray-600 text-lg">MINEDUC</span>
+                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Exámenes Libres</span>
+                    </div>
+                    <div class="flex items-center gap-3 opacity-70 hover:opacity-100 transition">
+                        <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <span class="font-bold text-gray-600 text-lg">Docentes con Postgrado</span>
+                    </div>
+                    <div class="flex items-center gap-3 opacity-70 hover:opacity-100 transition">
+                        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <span class="font-bold text-gray-600 text-lg">RUT: 65.257.622-2</span>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full font-semibold">Fundación oficial</span>
                     </div>
                 </div>
             </div>
@@ -344,29 +526,56 @@
         </section>
 
         <!-- DONA -->
-        <section id="dona" class="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+        <section id="dona" class="py-20 bg-gray-900 text-white">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6">El Arte de Abrir Puertas que Parecían Cerradas para Siempre</h2>
-                    <p class="text-lg text-orange-100 mb-8 leading-relaxed">
-                        ¿Sabías que en Chile miles de adultos viven con su futuro en pausa porque no pudieron terminar el colegio? Detrás de cada cifra hay una persona con talento que no accede a un mejor empleo, alguien que quiere seguir estudiando pero no sabe cómo, o un adulto que el sistema dejó atrás y nunca le dio una segunda oportunidad.
-                    </p>
-                    <div class="grid md:grid-cols-3 gap-6 mb-10 text-left">
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                            <div class="text-2xl font-bold mb-2">Tecnología con propósito</div>
-                            <p class="text-orange-100 text-sm">Democratizamos el acceso al aprendizaje con herramientas de vanguardia como Google Workspace, eliminando distancias y costos.</p>
+                <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+                    <span class="inline-block bg-orange-500/20 text-orange-400 px-4 py-1 rounded-full text-sm font-semibold mb-4">Haz la diferencia hoy</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">No estás donando dinero.</h2>
+                    <p class="text-2xl font-bold text-orange-400 mb-6">Estás donando la posibilidad de que alguien diga: <em>"Yo pude."</em></p>
+                    <p class="text-gray-400 text-lg leading-relaxed">Cada peso que aportás va directamente al programa. Sin intermediarios, sin burocracia. Esto es lo que tu donación hace en concreto:</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-14">
+                    <!-- Tier 1 -->
+                    <div class="dona-tier bg-gray-800 border border-gray-700 rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-4xl font-extrabold text-white mb-1">$5.000</div>
+                        <div class="text-gray-400 text-sm mb-6">/mes</div>
+                        <div class="w-12 h-12 bg-teal-600/20 text-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                         </div>
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                            <div class="text-2xl font-bold mb-2">Formación integral</div>
-                            <p class="text-orange-100 text-sm">Además de preparar exámenes, sanamos el vínculo con el aprendizaje a través de talleres de Yoga, Música y Artes.</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                            <div class="text-2xl font-bold mb-2">Docentes de excelencia</div>
-                            <p class="text-orange-100 text-sm">Equipo con postgrado que asegura que el 100% de nuestros alumnos logre su certificación ante el MINEDUC.</p>
-                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Semilla</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Financia los materiales digitales y acceso a plataforma de un adulto durante un mes completo.</p>
+                        <a href="https://www.flow.cl/btn.php?token=xc5109a65cd698ff888d6534bc08927475d24f50" target="_blank" rel="noopener" class="block w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition text-center">Donar $5.000/mes</a>
                     </div>
-                    <p class="text-xl font-semibold mb-8">No estás donando dinero; estás donando la posibilidad de que alguien diga:<br><em>"Yo pude. Yo terminé mi escuela."</em></p>
-                    <a href="https://www.flow.cl/btn.php?token=xc5109a65cd698ff888d6534bc08927475d24f50" target="_blank" rel="noopener" class="inline-block bg-white text-orange-500 px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-50 transition duration-300 shadow-lg">Dona Aquí</a>
+                    <!-- Tier 2 (destacado) -->
+                    <div class="dona-tier bg-orange-500 rounded-2xl p-8 text-center relative shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-orange-500 text-xs font-bold px-4 py-1 rounded-full shadow">Más elegido</span>
+                        <div class="text-4xl font-extrabold text-white mb-1">$20.000</div>
+                        <div class="text-orange-200 text-sm mb-6">/mes</div>
+                        <div class="w-12 h-12 bg-white/20 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Impulso</h4>
+                        <p class="text-orange-100 text-sm leading-relaxed mb-6">Cubre la educación completa de un adulto durante un mes: clases, tutores, plataforma y simulacros.</p>
+                        <a href="https://www.flow.cl/btn.php?token=xc5109a65cd698ff888d6534bc08927475d24f50" target="_blank" rel="noopener" class="block w-full bg-white text-orange-500 py-3 rounded-lg font-bold hover:bg-orange-50 transition text-center">Donar $20.000/mes</a>
+                    </div>
+                    <!-- Tier 3 -->
+                    <div class="dona-tier bg-gray-800 border border-gray-700 rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl font-extrabold text-white mb-1">$50.000</div>
+                        <div class="text-gray-400 text-sm mb-6">/mes</div>
+                        <div class="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-3">Patrocinador</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Patrocinás a un adulto durante un semestre completo, desde inscripción hasta que rinde su examen.</p>
+                        <a href="https://www.flow.cl/btn.php?token=xc5109a65cd698ff888d6534bc08927475d24f50" target="_blank" rel="noopener" class="block w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-400 transition text-center">Donar $50.000/mes</a>
+                    </div>
+                </div>
+
+                <div class="text-center" data-aos="fade-up">
+                    <p class="text-gray-500 text-sm mb-4">¿Querés hacer una donación única o un monto diferente?</p>
+                    <a href="https://www.flow.cl/btn.php?token=xc5109a65cd698ff888d6534bc08927475d24f50" target="_blank" rel="noopener" class="inline-block border border-gray-600 text-gray-300 px-8 py-3 rounded-lg font-semibold hover:border-orange-400 hover:text-orange-400 transition">Donación libre</a>
+                    <p class="text-gray-600 text-xs mt-6">Pago seguro vía Flow.cl · Webpay · Tarjetas · Transferencia · RUT: 65.257.622-2</p>
                 </div>
             </div>
         </section>
@@ -516,32 +725,46 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-950 text-white pt-16 pb-8">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h4 class="text-xl font-bold text-teal-400 mb-3">Fundación Vita Artes</h4>
-                    <p class="text-gray-400">Educación que Transforma, Tecnología que Incluye.</p>
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <h4 class="text-2xl font-extrabold text-teal-400 mb-3">Fundación Vita Artes</h4>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Educación gratuita para adultos mayores de 18 años que no terminaron el colegio. Tecnología, pedagogía de excelencia y acompañamiento humano real.</p>
+                    <a href="#dona" class="inline-block bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 transition text-sm">Donar Ahora</a>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-3">Nuestros Programas</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#vita-adultos" class="hover:text-teal-400 transition">Vita Adultos (Gratuito)</a></li>
+                    <h4 class="font-semibold text-white mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#vita-adultos" class="hover:text-teal-400 transition">Programa Vita Adultos</a></li>
+                        <li><a href="#impacto" class="hover:text-teal-400 transition">Nuestro Impacto</a></li>
+                        <li><a href="#testimonios" class="hover:text-teal-400 transition">Historias</a></li>
+                        <li><a href="#mitos-realidad" class="hover:text-teal-400 transition">Preguntas Frecuentes</a></li>
                         <li><a href="#asesorias" class="hover:text-teal-400 transition">Asesorías Educacionales</a></li>
+                        <li><a href="#contacto" class="hover:text-teal-400 transition">Contacto</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-3">Datos Institucionales</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li>Antonio Bellet 193, Of. 1210, Providencia, RM</li>
-                        <li>RUT: 65.257.622-2</li>
-                        <li class="text-xs italic mt-2">Impulsado por Google Workspace for Nonprofits</li>
+                    <h4 class="font-semibold text-white mb-4">Datos Institucionales</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Antonio Bellet 193, Of. 1210, Providencia, RM
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            RUT: 65.257.622-2
+                        </li>
+                        <li class="text-xs text-gray-500 italic pt-1">Fundación sin fines de lucro<br>Impulsada por Google Workspace for Nonprofits</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-6 text-center">
-                <p class="text-gray-500 text-sm">&copy; 2026 Fundación Educacional Vita Artes. Todos los derechos reservados.</p>
-                <button id="open-privacy-modal" class="text-gray-500 text-sm hover:text-teal-400 transition mt-2 underline">Política de Privacidad</button>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">&copy; 2026 Fundación Educacional Vita Artes. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <button id="open-privacy-modal" class="text-gray-600 text-sm hover:text-teal-400 transition underline">Política de Privacidad</button>
+                    <button id="open-terms-modal" class="text-gray-600 text-sm hover:text-teal-400 transition underline">Términos y Condiciones</button>
+                </div>
             </div>
         </div>
     </footer>
