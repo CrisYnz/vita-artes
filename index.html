@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://images.unsplash.com; connect-src 'self'; form-action 'self' https://api.web3forms.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
     <title>Fundación Vita Artes - Educación que Transforma, Tecnología que Incluye</title>
 
     <!-- Tailwind CSS -->
@@ -89,11 +90,13 @@
     <!-- Header & Navigation -->
     <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-teal-600">Vita Artes</a>
+            <a href="#" class="flex items-center">
+                <img src="logo-horizontal-transparent.png" alt="Fundación Vita Artes" class="h-10 w-auto">
+            </a>
             <div class="hidden lg:flex items-center space-x-6">
+                <a href="#quienes-somos" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Nosotros</a>
                 <a href="#vita-adultos" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Programa</a>
-                <a href="#impacto" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Impacto</a>
-                <a href="#testimonios" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Historias</a>
+                <a href="#impacto-esperado" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Impacto</a>
                 <a href="#asesorias" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Asesorías</a>
                 <a href="#contacto" class="text-gray-600 hover:text-teal-600 transition duration-300 font-medium">Contacto</a>
             </div>
@@ -108,9 +111,9 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 space-y-1">
+            <a href="#quienes-somos" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Nosotros</a>
             <a href="#vita-adultos" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Programa</a>
-            <a href="#impacto" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Impacto</a>
-            <a href="#testimonios" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Historias</a>
+            <a href="#impacto-esperado" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Impacto</a>
             <a href="#asesorias" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Asesorías</a>
             <a href="#contacto" class="block py-2 text-gray-600 hover:text-teal-600 font-medium">Contacto</a>
             <a href="#dona" class="block py-2 mt-2 bg-orange-500 text-white text-center rounded-lg font-semibold">Donar Ahora</a>
@@ -163,6 +166,36 @@
             </div>
         </section>
 
+        <!-- QUIÉNES SOMOS -->
+        <section id="quienes-somos" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center mb-14" data-aos="fade-up">
+                    <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">Quiénes somos</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">¿Quiénes Somos?</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        Fundación Vita Artes es una organización sin fines de lucro comprometida con la transformación y mejora de la calidad educativa en Chile. Nacimos de la profunda convicción de que la educación debe ser integral, accesible y centrada en el desarrollo de las habilidades únicas de cada estudiante.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Nuestro enfoque utiliza la integración de la innovación y la creatividad como pilares fundamentales para enriquecer el proceso de aprendizaje. A través de la creación de oportunidades de crecimiento y desarrollo para las personas e instituciones, buscamos generar un impacto sistémico que revitalice la pasión por el conocimiento.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-teal-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="text-xl font-bold text-teal-700 mb-3">Misión</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Mejorar la calidad de la educación chilena ofreciendo una formación integral e innovadora que potencie las habilidades únicas de cada persona. Nos dedicamos a crear y administrar espacios educativos de vanguardia y a asesorar a otras instituciones, asegurando que todos, desde la primera infancia hasta la edad adulta, tengan acceso a oportunidades de desarrollo que los preparen para la vida, el trabajo y los estudios superiores.
+                        </p>
+                    </div>
+                    <div class="bg-orange-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold text-orange-600 mb-3">Visión</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Ser reconocida como la fundación líder e innovadora en Chile que ha logrado un cambio sustancial y sostenible en el panorama educativo del país, impulsando una educación de alta calidad que fomenta la creatividad, garantiza la equidad y forma a estudiantes con una profunda comprensión integral del mundo, listos para enfrentar los desafíos del siglo XXI.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- EL PROBLEMA -->
         <section class="py-20 bg-gray-900 text-white">
             <div class="container mx-auto px-6">
@@ -195,43 +228,92 @@
         <!-- VITA ADULTOS -->
         <section id="vita-adultos" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Intro -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
                     <div data-aos="fade-right">
                         <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">100% Gratuito</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">VITA ADULTOS</h2>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">VITA ADULTOS: Nivelación de Estudios</h2>
                         <p class="text-xl text-teal-600 font-semibold italic mb-6">¡Es momento de cerrar el ciclo y abrir tu futuro!</p>
                         <p class="text-gray-600 text-lg mb-6">
-                            ¿No terminaste tu 4to Medio? No dejes que el tiempo o el trabajo sean un obstáculo. Nuestro programa es 100% gratuito y está diseñado para adultos mayores de 18 años que necesitan flexibilidad real. Gracias a nuestra alianza con <strong>Google Workspace for Nonprofits</strong>, puedes completar tus estudios y rendir los Exámenes Libres del MINEDUC desde cualquier lugar.
+                            En Fundación Vita Artes, creemos que nunca es tarde para transformar tu futuro. Por eso, hemos creado VITA ADULTOS, un programa especializado en la nivelación de estudios para rendir exámenes libres. Nuestro objetivo es acompañar a jóvenes y adultos en el cierre de sus etapas educativas, brindando herramientas pedagógicas adaptadas a sus realidades.
                         </p>
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-3">
-                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center font-bold">$0</span>
-                                <div><strong class="text-gray-900">Cero Costo:</strong> <span class="text-gray-600">Educación de alta calidad sin afectar tu bolsillo.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                </span>
-                                <div><strong class="text-gray-900">Flexibilidad 24/7:</strong> <span class="text-gray-600">Estudia a tu ritmo, en tus horarios de descanso o después del trabajo.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                </span>
-                                <div><strong class="text-gray-900">Acompañamiento Humano:</strong> <span class="text-gray-600">No estarás solo; contamos con tutores que te guiarán hasta tu examen final.</span></div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="flex-shrink-0 w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                                </span>
-                                <div><strong class="text-gray-900">Alfabetización Digital:</strong> <span class="text-gray-600">Te enseñamos a usar las herramientas tecnológicas desde cero.</span></div>
-                            </li>
-                        </ul>
                         <a href="#contacto" class="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-teal-700 transition duration-300 shadow-lg">Inscríbete Gratis Aquí</a>
                     </div>
                     <div data-aos="fade-left">
                         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Adulto estudiando con tablet" class="rounded-2xl shadow-xl mx-auto">
                     </div>
+                </div>
+
+                <!-- A quién va dirigido -->
+                <div class="max-w-4xl mx-auto mb-20" data-aos="fade-up">
+                    <h3 class="text-2xl font-extrabold text-gray-900 mb-3 text-center">¿A quién va dirigido?</h3>
+                    <p class="text-gray-600 text-center mb-10">Contamos con planes de estudio para todos los niveles de la modalidad EPJA (Educación de Personas Jóvenes y Adultas):</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-teal-50 rounded-2xl p-8">
+                            <h4 class="font-bold text-teal-700 text-lg mb-4">Educación Básica</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><strong class="text-gray-900">Primer Nivel:</strong> 1º a 4º básico</li>
+                                <li><strong class="text-gray-900">Segundo Nivel:</strong> 5º y 6º básico</li>
+                                <li><strong class="text-gray-900">Tercer Nivel:</strong> 7º y 8º básico</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 rounded-2xl p-8">
+                            <h4 class="font-bold text-orange-600 text-lg mb-4">Educación Media</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><strong class="text-gray-900">Primer Ciclo:</strong> 1º y 2º medio</li>
+                                <li><strong class="text-gray-900">Segundo Ciclo:</strong> 3º y 4º medio</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Por qué es necesario -->
+                <div class="bg-gray-900 text-white rounded-3xl p-10 md:p-14 mb-16" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-center mb-4">¿Por qué es necesario un programa como VITA ADULTOS?</h3>
+                    <p class="text-gray-400 text-center max-w-3xl mx-auto mb-10">La realidad educativa en Chile nos muestra un desafío urgente. Aunque el país ha avanzado, las brechas de escolaridad siguen siendo una barrera para el desarrollo personal y profesional de miles de personas.</p>
+
+                    <h4 class="font-bold text-orange-400 text-center mb-6">Radiografía del Rezago Escolar en Chile (2025-2026)</h4>
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="bg-gray-800 rounded-2xl p-8 text-center">
+                            <div class="text-4xl font-extrabold text-orange-400 mb-3">5 millones</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">de personas mayores de 15 años no han terminado su escolaridad obligatoria.</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-2xl p-8 text-center">
+                            <div class="text-4xl font-extrabold text-orange-400 mb-3">40.063</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">estudiantes se desvincularon del sistema escolar en el último ciclo anual.</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-2xl p-8 text-center">
+                            <div class="text-4xl font-extrabold text-orange-400 mb-3">27,7%</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">de inasistencia grave: estudiantes matriculados que no asisten regularmente, generando un "rezago invisible" y frustración académica.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="font-bold text-orange-400 text-center mb-6">¿Qué impide terminar los estudios?</h4>
+                    <p class="text-gray-400 text-center max-w-3xl mx-auto mb-8">Entendemos que el abandono escolar es un fenómeno multicausal. Según los últimos datos de la Encuesta Casen y el Mineduc, los principales motivos son:</p>
+                    <div class="grid md:grid-cols-3 gap-6 mb-10">
+                        <div class="text-center">
+                            <div class="text-3xl font-extrabold text-white mb-2">40%</div>
+                            <p class="text-gray-400 text-sm"><strong class="text-white">Razones Económicas:</strong> la necesidad de trabajar y generar ingresos es la causa principal de deserción.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-extrabold text-white mb-2">25%-15%</div>
+                            <p class="text-gray-400 text-sm"><strong class="text-white">Desmotivación y Salud Mental:</strong> falta de interés en contenidos tradicionales y aumento de cuadros de ansiedad o depresión tras la pandemia.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-extrabold text-white mb-2">12%</div>
+                            <p class="text-gray-400 text-sm"><strong class="text-white">Labores de Cuidado:</strong> principalmente en mujeres, debido a la maternidad o al cuidado de familiares enfermos o adultos mayores.</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-300 max-w-3xl mx-auto">
+                        <strong class="text-white">Nuestra Visión:</strong> Actualmente, el sistema tradicional solo logra absorber a menos del 10% de las personas en rezago. VITA ADULTOS nace para cerrar esa brecha, ofreciendo flexibilidad y apoyo real para quienes deben compatibilizar el estudio con el trabajo y la familia.
+                    </p>
+                </div>
+
+                <!-- CTA final -->
+                <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+                    <h3 class="text-2xl font-extrabold text-gray-900 mb-4">¡Inicia hoy tu camino al título!</h3>
+                    <p class="text-gray-600 mb-6">No dejes que los obstáculos del pasado definan tu mañana. En VITA ADULTOS te preparamos para que rindas tus exámenes libres con éxito y obtengas tu licencia de enseñanza básica o media.</p>
+                    <a href="#contacto" class="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-teal-700 transition duration-300 shadow-lg">Inscríbete Gratis Aquí</a>
                 </div>
             </div>
         </section>
@@ -305,112 +387,58 @@
             </div>
         </section>
 
-        <!-- IMPACTO -->
-        <section id="impacto" class="py-20 bg-white">
+        <!-- IMPACTO ESPERADO -->
+        <section id="impacto-esperado" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                    <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">Nuestro impacto</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Cada número es una persona que recuperó su futuro</h2>
-                    <p class="text-lg text-gray-500">Estos son los resultados de un modelo educativo que combina tecnología, pedagogía de excelencia y acompañamiento humano real.</p>
+                    <span class="inline-block bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">Impacto esperado</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">El Impacto de Completar tu Educación: Más que un Certificado</h2>
+                    <p class="text-lg text-gray-500">Obtener la licencia de Enseñanza Media a través de VITA ADULTOS no es sólo recibir un documento; es abrir una puerta que estuvo cerrada por años. Para un joven o adulto en situación de rezago, este logro genera una transformación profunda en tres dimensiones clave.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    <div class="bg-teal-600 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="0">
-                        <div class="text-5xl font-extrabold mb-2 stat-counter">+120</div>
-                        <div class="text-teal-100 font-medium">adultos inscritos</div>
-                        <div class="text-teal-200 text-xs mt-2">desde nuestra fundación</div>
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-teal-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center mb-4 font-extrabold">1</div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-3">Movilidad Laboral y Económica</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">En el mercado actual, la enseñanza media es el estándar mínimo exigido. Obtener el certificado permite:</p>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li><strong class="text-gray-900">Acceso a mejores empleos:</strong> salir de la precariedad laboral y acceder a contratos formales con beneficios sociales.</li>
+                            <li><strong class="text-gray-900">Continuidad de estudios:</strong> habilita el ingreso a la Educación Superior (CFT, IP o Universidades).</li>
+                            <li><strong class="text-gray-900">Capacitación técnica:</strong> permite acceder a cursos de especialización (SENCE y otros) que exigen escolaridad completa.</li>
+                        </ul>
                     </div>
-                    <div class="bg-orange-500 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="text-5xl font-extrabold mb-2 stat-counter">94%</div>
-                        <div class="text-orange-100 font-medium">tasa de aprobación</div>
-                        <div class="text-orange-200 text-xs mt-2">en Exámenes Libres MINEDUC</div>
+                    <div class="bg-orange-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center mb-4 font-extrabold">2</div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-3">Bienestar Emocional y Autoconfianza</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">Muchos de nuestros estudiantes llegan con una historia de frustración o "fracaso" escolar previo. Terminar este proceso significa:</p>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li><strong class="text-gray-900">Cierre de ciclos:</strong> sanar la herida de haber abandonado los estudios y transformar el "no pude" en un "lo logré".</li>
+                            <li><strong class="text-gray-900">Dignidad y Autovaloración:</strong> recuperar la confianza en las capacidades personales para enfrentar nuevos desafíos.</li>
+                            <li><strong class="text-gray-900">Ejemplo familiar:</strong> convertirse en un referente positivo para hijos, nietos y el entorno cercano, rompiendo el círculo de la exclusión.</li>
+                        </ul>
                     </div>
-                    <div class="bg-gray-800 text-white rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="text-5xl font-extrabold mb-2 stat-counter">5</div>
-                        <div class="text-gray-300 font-medium">regiones de Chile</div>
-                        <div class="text-gray-400 text-xs mt-2">alcanzadas con el programa</div>
-                    </div>
-                    <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-8 text-center shadow-lg" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="text-5xl font-extrabold text-teal-700 mb-2 stat-counter">$0</div>
-                        <div class="text-teal-600 font-medium">costo para el alumno</div>
-                        <div class="text-teal-400 text-xs mt-2">siempre fue y será gratuito</div>
+                    <div class="bg-teal-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center mb-4 font-extrabold">3</div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-3">Participación Ciudadana</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">La educación entrega herramientas críticas para entender y navegar el mundo actual. Un ciudadano con escolaridad completa:</p>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li>Tiene mayor capacidad de autodefensa y conocimiento de sus derechos.</li>
+                            <li>Mejora su comprensión lectora y pensamiento lógico, herramientas vitales para trámites, finanzas personales y toma de decisiones.</li>
+                            <li>Se integra plenamente en la sociedad digital y el acceso a la información.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Cómo funciona el modelo -->
-                <div class="bg-gray-50 rounded-3xl p-10 md:p-14" data-aos="fade-up">
-                    <h3 class="text-2xl font-extrabold text-gray-900 text-center mb-10">¿Cómo funciona el modelo?</h3>
-                    <div class="grid md:grid-cols-3 gap-8 relative">
-                        <div class="text-center">
-                            <div class="w-14 h-14 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">1</div>
-                            <h4 class="font-bold text-gray-900 mb-2">Inscripción gratuita</h4>
-                            <p class="text-gray-500 text-sm">El adulto completa un formulario simple. Sin papelería compleja, sin entrevistas excluyentes.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-14 h-14 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">2</div>
-                            <h4 class="font-bold text-gray-900 mb-2">Preparación personalizada</h4>
-                            <p class="text-gray-500 text-sm">Clases en vivo, plataforma 24/7 en Google Classroom, tutores reales y simulacros de exámenes.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-14 h-14 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold shadow-lg">3</div>
-                            <h4 class="font-bold text-gray-900 mb-2">Certificación oficial</h4>
-                            <p class="text-gray-500 text-sm">Rinde los Exámenes Libres del MINEDUC y obtiene un título con validez legal en todo el país.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <blockquote class="max-w-3xl mx-auto text-center border-l-4 border-orange-400 pl-6 py-2 mb-16" data-aos="fade-up">
+                    <p class="text-xl text-gray-700 italic font-medium">"El rezago escolar no es una falta de capacidad, es una falta de oportunidad. En Vita Artes, devolvemos esa oportunidad a quienes el sistema dejó atrás."</p>
+                </blockquote>
 
-        <!-- TESTIMONIOS -->
-        <section id="testimonios" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
-                    <span class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-sm font-semibold mb-4">Historias reales</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Las personas detrás del cambio</h2>
-                    <p class="text-lg text-gray-500">Estos son algunos de los adultos que eligieron recuperar lo que el sistema les quitó.</p>
+                <div class="bg-gray-50 rounded-3xl p-10 md:p-14 text-center" data-aos="fade-up">
+                    <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Nuestro Compromiso con las Cifras</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Sabemos que en Chile existen cerca de 5 millones de personas en rezago. Cada certificado que se obtiene con la ayuda de VITA ADULTOS reduce esa brecha y combate la exclusión social. No solo nivelamos estudios, nivelamos la cancha para que todos tengan las mismas oportunidades de soñar y construir un proyecto de vida sólido.
+                    </p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="flex items-center gap-4 mb-6 mt-4">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Carlos, 42 años" class="w-14 h-14 rounded-full object-cover shadow">
-                            <div>
-                                <div class="font-bold text-gray-900">Carlos M.</div>
-                                <div class="text-teal-600 text-sm">42 años · Antofagasta</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed italic">"Dejé el colegio a los 16 para trabajar en la minería. 26 años después, mi empresa exigió título para el ascenso. En 8 meses con Vita Artes aprobé todo. Hoy soy supervisor de turno."</p>
-                        <div class="flex gap-1 mt-4">
-                            <span class="text-orange-400">★★★★★</span>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card border-2 border-teal-200" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex items-center gap-4 mb-6 mt-4">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Ana, 35 años" class="w-14 h-14 rounded-full object-cover shadow">
-                            <div>
-                                <div class="font-bold text-gray-900">Ana R.</div>
-                                <div class="text-teal-600 text-sm">35 años · Santiago</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed italic">"Soy madre soltera y trabajo de día. Nunca pensé que podría estudiar. Los tutores me ayudaron a organizarme y nunca me sentí sola. Rendí mi examen en noviembre y lo pasé a la primera."</p>
-                        <div class="flex gap-1 mt-4">
-                            <span class="text-orange-400">★★★★★</span>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex items-center gap-4 mb-6 mt-4">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" alt="Roberto, 58 años" class="w-14 h-14 rounded-full object-cover shadow">
-                            <div>
-                                <div class="font-bold text-gray-900">Roberto V.</div>
-                                <div class="text-teal-600 text-sm">58 años · Valparaíso</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed italic">"A los 58 años no sabía ni usar un celular. Me enseñaron todo desde cero. Hoy tengo mi cuarto medio y me inscribí en un CFT. Si yo pude, cualquiera puede."</p>
-                        <div class="flex gap-1 mt-4">
-                            <span class="text-orange-400">★★★★★</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-center text-sm text-gray-400 mt-8">* Los nombres han sido modificados para proteger la privacidad de los participantes.</p>
             </div>
         </section>
 
@@ -736,9 +764,9 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Navegación</h4>
                     <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#quienes-somos" class="hover:text-teal-400 transition">Quiénes Somos</a></li>
                         <li><a href="#vita-adultos" class="hover:text-teal-400 transition">Programa Vita Adultos</a></li>
-                        <li><a href="#impacto" class="hover:text-teal-400 transition">Nuestro Impacto</a></li>
-                        <li><a href="#testimonios" class="hover:text-teal-400 transition">Historias</a></li>
+                        <li><a href="#impacto-esperado" class="hover:text-teal-400 transition">Impacto Esperado</a></li>
                         <li><a href="#mitos-realidad" class="hover:text-teal-400 transition">Preguntas Frecuentes</a></li>
                         <li><a href="#asesorias" class="hover:text-teal-400 transition">Asesorías Educacionales</a></li>
                         <li><a href="#contacto" class="hover:text-teal-400 transition">Contacto</a></li>
